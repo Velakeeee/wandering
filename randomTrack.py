@@ -1,6 +1,6 @@
 from wandering import ComunWandering
-from track import track
-from location import location
+from track import Track
+from location import Location
 
 from bokeh.plotting import figure, output_file, show 
 
@@ -14,19 +14,19 @@ def walking(location, wandering, steps):
 
 def simulate_walk(steps, number_attempts, type_wandering):
     wandering = type_wandering(name='Tulio')
-    origen = location(0,0)
+    origen = Track(0,0)
     distances = []
     
     for _ in range(number_attempts):
-        track = track()
-        track.add_wandering(wandering, origen)
-        simulations_walk = walking(track, wandering, steps)
+        location = Location()
+        location.add_wandering(wandering, origen)
+        simulations_walk = walking(location, wandering, steps)
         distances.append(round(simulations_walk, 1))
     return distances
 
 def graph(x, y):
-    graphics = figure(tittle='Camino del errante', x_axis_label='Pasos', y_axis_label='Distancia')
-    graphics.line(x, y, legend='Distancia')
+    graphics = figure(title='Camino del errante', x_axis_label='Pasos', y_axis_label='Distancia')
+    graphics.line(x, y, legend_label='Distancia')
     show(graphics)
     
 def main(distances_walk, number_attempts, type_wandering):
@@ -41,7 +41,7 @@ def main(distances_walk, number_attempts, type_wandering):
         print(f'{type_wandering.__name__} Caminata aleatoria de {steps} pasos')
         print(f'Media = {middle_distance}')
         print(f'Max = {max_distances}')
-        print(f'min = {min_distances}')
+        print(f'Min = {min_distances}')
     graph(distances_walk, average_walking_distance)
     
 if __name__ == '__main__':
