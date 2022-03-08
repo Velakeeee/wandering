@@ -1,10 +1,8 @@
 from wandering import ComunWandering
-<<<<<<< HEAD
 from track import track
 from location import location
 
 from bokeh.plotting import figure, output_file, show 
-=======
 from track import Track
 from location import Location
 
@@ -56,4 +54,3 @@ if __name__ == '__main__':
     number_attempts = 100
     main(distances_walk, number_attempts, ComunWandering)
         
->>>>>>> random
