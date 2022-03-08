@@ -1,6 +1,6 @@
 from wandering import ComunWandering
-from track import track
-from location import location
+from track import Track
+from location import Location
 
 from bokeh.plotting import figure, output_file, show 
 from track import Track
