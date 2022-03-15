@@ -6,7 +6,7 @@ class  wandering:
         self.x = x 
         self.y = y 
         
-    def position(self):
+    def posicion(self):
         return (self.x, self.y)
     
     def distance_origin(self):
